@@ -20,6 +20,9 @@ Its key features are:
   - Mozilla Firefox (tested in latest version)
   - [IE8+](doc/ie-support.md)
   - Opera 12+;
+  - Safari 8.0 desktop, Safari 8.1 desktop
+  - Safari default on iOS 9.0, iOS 8.4, iOS 8.1, iOS 7.1
+  - Android 5.0, 4.4, 4.0
 
 * Ability to test separate sections of a web page;
 
