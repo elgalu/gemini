@@ -273,9 +273,7 @@ exports.eachSupportedBrowser = function(cb) {
 
     // run tests in all supported browsers
     Object.keys(supportedBrowsers).forEach(function(browserId) {
-        browserDescribe('in ' + browserId, function() {
-            runTestsInBrowser(browserId, cb);
-        });
+        runTestsInBrowser(browserId, cb);
     });
 };
 
@@ -283,10 +281,12 @@ function runTestsInBrowser(browserId, callback) {
     if (!supportedBrowsers.hasOwnProperty(browserId)) {
         throw new Error('Unknown browser: ' + browserId);
     }
-    beforeEach(function() {
-        var browserConfig = testsConfig.forBrowser(browserId);
-        this.browser = new Browser(browserConfig);
-    });
+    browserDescribe('in ' + browserId, function() {
+        beforeEach(function() {
+            var browserConfig = testsConfig.forBrowser(browserId);
+            this.browser = new Browser(browserConfig);
+        });
 
-    callback();
+        callback();
+    });
 }
